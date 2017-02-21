@@ -23,7 +23,9 @@ namespace CoffeShop
                     Console.WriteLine("Please select your coffee size : 1 - Small, 2 - Medium, 3 - Large");
                     UserChoice = int.Parse(Console.ReadLine());
                     //TODO exception handling
-                    switch (UserChoice)
+                    try
+                    {
+                        switch (UserChoice)
                     {
                         case 1:
                             CoffeeCost += 1;
@@ -35,9 +37,14 @@ namespace CoffeShop
                             CoffeeCost += 3;
                             break;
                         default:
-                            Console.WriteLine("Your choice {0} is invalid. Please try again...", UserChoice);
-                            break;
+                            throw new Exception();
                     }
+
+                    }catch(Exception ex)
+                    {
+                        Console.WriteLine("Your choice is invalid.Please try again...");
+                    }
+                    
 
                 } while (UserChoice != 1 && UserChoice != 2 && UserChoice != 3);
 
@@ -49,10 +56,18 @@ namespace CoffeShop
                     //upper case?
                     UserDecision = Console.ReadLine();
                     //TODO exception handling
-                    if (UserDecision != "Yes" && UserDecision != "No")
+                    try
                     {
-                        Console.WriteLine("Your choice {0} is invalid.Please try again...", UserDecision);
+                        if (UserDecision != "Yes" && UserDecision != "No")
+                         {
+                            throw new Exception();
+                          }
+
+                    }catch(Exception ex)
+                    {
+                        Console.WriteLine("Your choice {0} is invalid.Please try again...");
                     }
+                    
                 } while (UserDecision != "Yes" && UserDecision != "No");
             } while (UserDecision != "No");
             Console.WriteLine("Thank you for shoping with us.\nBill amonut is {0}", CoffeeCost);
