@@ -17,7 +17,6 @@ namespace CoffeShop
             do
             {
 
-
                 do
                 {
                     Console.WriteLine("Please select your coffee size : 1 - Small, 2 - Medium, 3 - Large");
@@ -45,12 +44,10 @@ namespace CoffeShop
                         Console.WriteLine("Your choice is invalid.Please try again...");
                     }
                     
-
                 } while (UserChoice != 1 && UserChoice != 2 && UserChoice != 3);
 
                 do
                 {
-
 
                     Console.WriteLine("Do you want to buy another coffee? - Yes or No");
                     //upper case?
